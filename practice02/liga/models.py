@@ -22,7 +22,7 @@ class Jugador(models.Model):
 
     class Meta:
         verbose_name = "jugador"
-        verbose_name_plural = "equipos"
+        verbose_name_plural = "jugadores"
 
     def __str__(self):
         return self.nickname
