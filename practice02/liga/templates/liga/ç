@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Equipos e-sports</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+          fetch("http://127.0.0.1:8000/api/v1/")
+            .then(response => response.json())
+            .then(saved_equipos => {
+                const lista_equipos = query.selector("#lista-equipos")
+                saved_equipos.map(equipo =>  {
+                    lista_equipos.innerHTML += `<li>${equipo.nombre}</li>`
+                
+                }
+             });
+    }
+    </script>
+</head>
+<body>
+<h1>Mis equipos E-sports</h1>
+<ul id="lista-equipos">
+</ul>
+</body>
+</html>
+
