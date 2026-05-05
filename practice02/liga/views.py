@@ -11,11 +11,11 @@ class HomePage(TemplateView):
 
 # Create your views here.
 class EquipoListCreate(generics.ListCreateAPIView):
-    queryset = Equipo.objects.all()
+    queryset = Equipo.objects.prefetch_related("jugadores")
     serializer_class = EquipoSerializer
 
 
 class EquipoRetrieve(generics.RetrieveAPIView):
-    queryset = Equipo.objects.all()
+    queryset = Equipo.objects.prefetch_related("jugaores")
     serializer_class = EquipoSerializer
 
