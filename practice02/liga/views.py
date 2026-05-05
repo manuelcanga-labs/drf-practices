@@ -16,6 +16,5 @@ class EquipoListCreate(generics.ListCreateAPIView):
 
 
 class EquipoRetrieve(generics.RetrieveAPIView):
-    queryset = Equipo.objects.prefetch_related("jugaores")
+    queryset = Equipo.objects.prefetch_related("jugadores")
     serializer_class = EquipoSerializer
-
