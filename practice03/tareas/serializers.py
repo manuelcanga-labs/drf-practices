@@ -14,6 +14,9 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class TareasSerializer(serializers.ModelSerializer):
+    # serializers.ReadOnlyField(source='propietario.id')
+
     class Meta:
         model = Tarea
         fields = ('titulo', 'completada', 'propietario',)
+        read_only_fields = ('propietario',)
