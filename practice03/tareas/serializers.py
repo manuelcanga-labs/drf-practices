@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
+from .models import Tarea
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -10,3 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {"write_only": True},
         }
+
+
+class TareasSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tarea
+        fields = ('titulo', 'completada', 'propietario',)
