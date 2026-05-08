@@ -26,11 +26,14 @@ SECRET_KEY = "django-insecure-u)27&682k^*wcnz4h9t_e*lis235@$x6&mgzt9zz_)4r3d8ldw
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    "debug_toolbar",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,10 +43,11 @@ INSTALLED_APPS = [
 
     "rest_framework",
 
-    "tareas"
+    "tareas",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -54,6 +58,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "taskvault.urls"
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+    ]
+}
 
 TEMPLATES = [
     {
